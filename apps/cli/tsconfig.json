@@ -9,6 +9,11 @@
     "allowJs": true,
 
     // Bundler mode
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@agent-browse/core": ["../../packages/core/index.ts"]
+    },
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,

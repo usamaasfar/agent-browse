@@ -11,7 +11,7 @@ const client = new Ollama();
 const instructions = readFileSync(join(import.meta.dir, "../../prompts/search.md"), "utf-8");
 
 const agent = new ToolLoopAgent({
-  model: ollama("llama3.2"),
+  model: ollama("kimi-k2.5:cloud"),
   instructions,
   stopWhen: stepCountIs(10),
   tools: {

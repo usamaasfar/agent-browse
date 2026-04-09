@@ -13,7 +13,7 @@ const system = readFileSync(join(import.meta.dir, "../../prompts/fetch.md"), "ut
  * If query is empty, returns the raw fetched page content with no AI involved.
  * @returns Plain text answer, or raw page content if query is empty.
  */
-export async function fetch(query: string, links: string[], model = "llama3.2"): Promise<string> {
+export async function fetch(query: string, links: string[], model = "kimi-k2.5:cloud"): Promise<string> {
   const pages = await Promise.all(links.map((url) => client.webFetch({ url })));
 
   const context = pages.map((p) => `Title: ${p.title}\nURL: ${p.url}\n\n${p.content}`).join("\n\n---\n\n");
