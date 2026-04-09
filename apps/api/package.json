@@ -1,0 +1,26 @@
+{
+  "name": "@agent-browse/api",
+  "version": "0.1.0",
+  "description": "Programmatic API wrapper for agent-browse",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./index.ts --outfile dist/index.js --target bun",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@agent-browse/core": "*",
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}

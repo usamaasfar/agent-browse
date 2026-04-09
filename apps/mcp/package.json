@@ -1,0 +1,37 @@
+{
+  "name": "@agent-browse/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for agent-browse — exposes web fetch and search tools over Model Context Protocol",
+  "license": "MIT",
+  "main": "./dist/http.js",
+  "exports": {
+    ".": "./dist/http.js",
+    "./stdio": "./dist/stdio.js"
+  },
+  "bin": {
+    "agent-browse-mcp": "./dist/stdio.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "xmcp dev",
+    "build": "xmcp build",
+    "prepublishOnly": "bun run build",
+    "start:http": "node dist/http.js",
+    "start:stdio": "node dist/stdio.js"
+  },
+  "dependencies": {
+    "xmcp": "^0.6.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@agent-browse/core": "*",
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18",
+    "bun": ">=1.0.0"
+  }
+}
