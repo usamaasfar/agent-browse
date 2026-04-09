@@ -1,3 +1,8 @@
+declare module "*.md" {
+  const content: string;
+  export default content;
+}
+
 declare module "bun:test" {
   type TestOptions = {
     timeout?: number;

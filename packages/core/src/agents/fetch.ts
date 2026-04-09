@@ -1,12 +1,9 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { generateText } from "ai";
 import { Ollama } from "ollama";
 import { ollama } from "ollama-ai-provider-v2";
+import system from "../../prompts/fetch.md" with { type: "text" };
 
 const client = new Ollama();
-
-const system = readFileSync(join(import.meta.dir, "../../prompts/fetch.md"), "utf-8");
 
 /**
  * Fetches the given links and answers the query with cited sources.

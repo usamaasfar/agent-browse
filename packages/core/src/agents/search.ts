@@ -1,14 +1,11 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { ToolLoopAgent, stepCountIs, tool } from "ai";
 import { Ollama } from "ollama";
 import { ollama } from "ollama-ai-provider-v2";
 import { z } from "zod";
+import instructions from "../../prompts/search.md" with { type: "text" };
 import { fetch } from "./fetch.ts";
 
 const client = new Ollama();
-
-const instructions = readFileSync(join(import.meta.dir, "../../prompts/search.md"), "utf-8");
 
 const agent = new ToolLoopAgent({
   model: ollama("kimi-k2.5:cloud"),
