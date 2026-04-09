@@ -1,6 +1,6 @@
 {
   "name": "@agent-browse/cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CLI for agent-browse — web fetch and search via Ollama",
   "type": "module",
   "license": "MIT",

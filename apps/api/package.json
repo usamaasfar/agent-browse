@@ -1,6 +1,6 @@
 {
   "name": "@agent-browse/api",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Programmatic API wrapper for agent-browse",
   "type": "module",
   "license": "MIT",
