@@ -13,7 +13,7 @@ npm install -g @agent-browse/cli
 Install the agent skill:
 
 ```bash
-npx skills add https://github.com/usamaasfar/agent-browse/tree/main/skills/agent-browse-cli
+npx skills add usamaasfar/agent-browse
 ```
 
 ## Requirements

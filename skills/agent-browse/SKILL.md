@@ -1,9 +1,9 @@
 ---
-name: agent-browse-cli
+name: agent-browse
 description: Use this skill when you need to search the web or fetch URLs using the agent-browse CLI.
 ---
 
-# Agent Browse CLI
+# Agent Browse
 
 Search the web and fetch URLs through two primitives:
 
