@@ -43,7 +43,7 @@ npm version "$version" --no-git-tag-version --prefix apps/api >/dev/null
 
 tag="v$version"
 
-bun install
+bun install --ignore-scripts
 git add apps/cli/package.json apps/mcp/package.json apps/api/package.json bun.lock
 git commit -m "$tag"
 git tag "$tag"
