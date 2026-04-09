@@ -25,8 +25,8 @@ search  fetch
 
 ## Interfaces
 
-| Package                                    | Role                                                       |
-| ------------------------------------------ | ---------------------------------------------------------- |
+| Package                                     | Role                                                       |
+| ------------------------------------------- | ---------------------------------------------------------- |
 | [`@agent-browse/cli`](./apps/cli/README.md) | Human-facing command line wrapper over the core primitives |
 | [`@agent-browse/mcp`](./apps/mcp/README.md) | MCP server that exposes the primitives as tools            |
 | [`@agent-browse/api`](./apps/api/README.md) | Small programmatic wrapper for app/server integration      |
@@ -83,12 +83,6 @@ Use the package READMEs for package-specific usage and reference:
 - [CLI package docs](./apps/cli/README.md)
 - [MCP package docs](./apps/mcp/README.md)
 - [API package docs](./apps/api/README.md)
-
-## Skill
-
-```bash
-npx skills add https://github.com/usamaasfar/agent-browse/tree/main/skills/agent-browse-cli
-```
 
 ## License
 
