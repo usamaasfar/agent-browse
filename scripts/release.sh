@@ -36,10 +36,10 @@ if [[ "$current_branch" == "HEAD" ]]; then
   exit 1
 fi
 
-npm version "$release_type" --no-git-tag-version --workspace apps/cli >/dev/null
+npm version "$release_type" --no-git-tag-version --prefix apps/cli >/dev/null
 version="$(node -p "require('./apps/cli/package.json').version")"
-npm version "$version" --no-git-tag-version --workspace apps/mcp >/dev/null
-npm version "$version" --no-git-tag-version --workspace apps/api >/dev/null
+npm version "$version" --no-git-tag-version --prefix apps/mcp >/dev/null
+npm version "$version" --no-git-tag-version --prefix apps/api >/dev/null
 
 tag="v$version"
 
