@@ -8,7 +8,7 @@
     "format": "biome format --write .",
     "check": "biome check --write .",
     "check-types": "turbo run check-types",
-    "postinstall": "node -e \"process.env.CI || require('child_process').execSync('simple-git-hooks', {stdio: 'inherit'})\""
+    "postinstall": "simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "bun format",
