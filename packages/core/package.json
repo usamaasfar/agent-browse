@@ -1,0 +1,30 @@
+{
+  "name": "@agent-browse/core",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Core agent-browse logic — web fetch and search via Ollama",
+  "type": "module",
+  "license": "MIT",
+  "main": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "build": "bun build ./index.ts --outfile dist/index.js --target bun",
+    "check-types": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "ai": "^6.0.154",
+    "ollama": "^0.6.3",
+    "ollama-ai-provider-v2": "^3.5.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}

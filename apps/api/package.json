@@ -1,0 +1,42 @@
+{
+  "name": "@agent-browse/api",
+  "version": "0.0.0",
+  "description": "Programmatic API wrapper for agent-browse",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./index.ts --outfile dist/index.js --target bun",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@agent-browse/core": "*",
+    "@types/bun": "^1.3.9",
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usamaasfar/agent-browse.git",
+    "directory": "apps/api"
+  },
+  "homepage": "https://github.com/usamaasfar/agent-browse#readme",
+  "bugs": {
+    "url": "https://github.com/usamaasfar/agent-browse/issues"
+  },
+  "keywords": [
+    "browse",
+    "agent",
+    "ai",
+    "web",
+    "ollama"
+  ]
+}

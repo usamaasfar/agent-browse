@@ -1,0 +1,7 @@
+src/
+index.ts
+tsconfig.json
+xmcp.config.ts
+AGENTS.md
+*.ts
+!dist/**

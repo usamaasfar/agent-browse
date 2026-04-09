@@ -1,0 +1,7 @@
+src/
+tests/
+index.ts
+tsconfig.json
+AGENTS.md
+*.ts
+!dist/**
