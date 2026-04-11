@@ -2,43 +2,44 @@
 
 Implementation README for maintainers and coding agents.
 
-`@agent-browse/core` is the real engine of this repo. It talks directly to
-Ollama's local API and exposes the agent primitive layer used by the CLI, MCP
-server, and API wrapper.
+`@agent-browse/core` is the engine of this repo. It talks directly to Ollama's local API and owns all agent behavior used by the CLI, MCP server, and API wrapper.
 
-This package is for internal use inside the monorepo. It is not the recommended
-integration surface for external consumers, and its implementation details are
-allowed to evolve to support the higher-level packages.
+This package is for internal use inside the monorepo. It is not the recommended integration surface for external consumers, and its implementation details are allowed to evolve to support the higher-level packages.
 
 ## Public API
 
-Root exports:
+```ts
+browse(query: string): Promise<string>
+```
 
-- `fetch`
-- `search`
+Single export. The query is plain text — include URLs directly in the query string if you want the agent to fetch them.
 
 ## Behavioral Model
 
-This package is Ollama-centric.
+`browse` runs a `ToolLoopAgent` backed by Ollama. The agent has three tools:
 
-- `fetch` calls `ollama.webFetch()` in parallel for all links, then uses `generateText` to answer the query grounded in the fetched content. If `query` is empty, returns raw page content with no AI involved.
-- `search` uses a `ToolLoopAgent` that can call `webSearch` and `webFetch` in multiple steps to build a complete answer with cited sources.
+- `webSearch` — searches the web and returns results (title, URL, snippet)
+- `webFetch` — fetches a single URL and returns its raw content
+- `browse` (sub-agent) — delegates a focused sub-task to a child `ToolLoopAgent` with only `webSearch` and `webFetch`
+
+The main agent decides how to use them based on the query. For a URL in the query it fetches directly. For a natural language question it searches first. For complex multi-part queries it delegates parts to the sub-agent.
 
 ## Internal Layout
 
 ```text
 src/
-  agents/
-    fetch.ts      web fetch agent using generateText
-    search.ts     web search agent using ToolLoopAgent
-prompts/
-  fetch.md        system prompt for the fetch agent
-  search.md       system prompt for the search agent
+  index.ts              ToolLoopAgent + browse() export
+  prompts/
+    browse.ts           main agent system prompt
+    sub-browse.ts       sub-agent system prompt
+  tools/
+    fetch.ts            webFetch tool
+    search.ts           webSearch tool
+    browse.ts           sub-agent as a tool
+    index.ts            re-exports all tools
 ```
 
 ## Testing
-
-Run locally:
 
 ```bash
 bun run check-types
@@ -47,8 +48,8 @@ bun test
 
 ## Maintenance Rules
 
-- Keep business logic in the agent files
-- Keep prompt content in the `.md` files under `prompts/`
+- Keep business logic in agent and tool files
+- Keep prompt content in `src/prompts/`
 - Prefer explicit typed errors over generic exceptions
 
 ## Current Scope

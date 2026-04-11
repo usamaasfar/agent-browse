@@ -1,6 +1,6 @@
 # @agent-browse/mcp
 
-MCP server for searching the web and fetching URLs via Ollama.
+MCP server for browsing the web via Ollama.
 
 ## Requirements
 
@@ -35,20 +35,17 @@ codex mcp add agent-browse npx -- -y @agent-browse/mcp
 
 ## Tools
 
-| Tool | Description |
-| --- | --- |
-| `search` | Search the web and return an answer with cited sources |
-| `fetch` | Fetch one or more URLs and answer a question grounded in the page content |
+| Tool     | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+| `browse` | Browse the web to answer a query. Searches, fetches, and navigates as needed |
 
-### Inputs
+### Input
 
-- `search`: `query`
-- `fetch`: `query`, `links`
+- `query` — the question to answer. Include URLs directly in the query to fetch them.
 
-### Outputs
+### Output
 
-- `search`: plain text answer with inline citations
-- `fetch`: plain text answer grounded in page content, or raw page content if query is empty
+Plain text answer with inline citations and a Sources block.
 
 ## License
 

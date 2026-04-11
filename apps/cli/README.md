@@ -4,8 +4,6 @@ Command-line interface for Agent Browse.
 
 ## Install
 
-Install or upgrade the CLI:
-
 ```bash
 npm install -g @agent-browse/cli
 ```
@@ -23,35 +21,24 @@ npx skills add usamaasfar/agent-browse
 ## Quick Start
 
 ```bash
-agent-browse search what is bun js runtime
-agent-browse fetch what is bun https://bun.sh
-agent-browse fetch https://bun.sh
+agent-browse what is bun js runtime
+agent-browse what is the latest version of react https://react.dev
 ```
 
-## Command Reference
+## Usage
 
-### `--version`
+```bash
+agent-browse <query>
+```
+
+All arguments are joined as the query — no quotes required. Include URLs directly in the query to fetch them.
+
+## Options
 
 ```bash
 agent-browse --version
 agent-browse -v
 ```
-
-### `search`
-
-```bash
-agent-browse search <query>
-```
-
-All arguments are joined as the query — no quotes required. Returns an answer with cited sources.
-
-### `fetch`
-
-```bash
-agent-browse fetch [query words] <url> [url...]
-```
-
-Arguments starting with `http://` or `https://` are treated as links; everything else is joined as the query. If no query is provided, returns raw page content with no AI involved.
 
 ## License
 

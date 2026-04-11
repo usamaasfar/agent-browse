@@ -19,30 +19,25 @@ import { AgentBrowse } from "@agent-browse/api";
 
 const browser = new AgentBrowse();
 
-const answer = await browser.search("what is bun js runtime");
+const answer = await browser.browse("what is bun js runtime");
 console.log(answer);
 
-const page = await browser.fetch("what is bun", ["https://bun.sh"]);
+// Include URLs directly in the query
+const page = await browser.browse("what is bun https://bun.sh");
 console.log(page);
 ```
 
 ## API Reference
 
-### `search(query)`
+### `browse(query)`
 
 ```ts
-browser.search(query: string): Promise<string>
+browser.browse(query: string): Promise<string>
 ```
 
-Searches the web and returns a plain text answer with cited sources.
+Browses the web to answer a query. Searches, fetches, and navigates sites as needed. Include URLs directly in the query string to fetch them.
 
-### `fetch(query, links)`
-
-```ts
-browser.fetch(query: string, links: string[]): Promise<string>
-```
-
-Fetches the given URLs and returns a plain text answer grounded in the page content. If `query` is empty, returns raw page content with no AI involved.
+Returns a plain text answer with inline citations and a Sources block.
 
 ## License
 
