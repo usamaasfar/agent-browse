@@ -1,2 +1,1 @@
-export { fetch } from "./src/agents/fetch.ts";
-export { search } from "./src/agents/search.ts";
+export { browse } from "./src/index.ts";
