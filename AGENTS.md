@@ -2,13 +2,14 @@
 
 Agent Browse is a minimal, Ollama-first project.
 
-The project surface is built around two primitives:
+The project surface is built around one primitive:
 
 ```text
-search  fetch
+browse
 ```
 
-`search` queries the web and returns an answer with cited sources. `fetch` retrieves one or more URLs and answers a question grounded in the page content, or returns raw content if no query is given.
+`browse(query)` takes a plain-text query and returns a grounded answer with cited sources. Include URLs directly in the query to fetch them.
+
 `packages/core` is the internal implementation layer. The public entrypoints are the CLI, MCP package, and API wrapper.
 
 ## Project Structure
@@ -24,7 +25,7 @@ search  fetch
 ├── packages/
 │   └── core/
 └── skills/
-    └── agent-browse-cli/
+    └── agent-browse/
 ```
 
 ## Working Style
@@ -57,7 +58,7 @@ Public package docs:
 - [`apps/cli/README.md`](./apps/cli/README.md)
 - [`apps/mcp/README.md`](./apps/mcp/README.md)
 - [`apps/api/README.md`](./apps/api/README.md)
-- [`skills/agent-browse-cli/SKILL.md`](./skills/agent-browse-cli/SKILL.md)
+- [`skills/agent-browse/SKILL.md`](./skills/agent-browse/SKILL.md)
 
 Internal implementation docs:
 

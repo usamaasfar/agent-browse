@@ -5,7 +5,7 @@ const config: XmcpConfig = {
   stdio: true,
   template: {
     name: "agent-browse",
-    description: "Search the web and fetch URLs — powered by Ollama.",
+    description: "Browse the web and answer queries — powered by Ollama.",
   },
   bundler: (bundlerConfig) => {
     const existingExternals = bundlerConfig.externals;

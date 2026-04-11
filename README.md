@@ -6,43 +6,35 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Agent Browse gives AI agents direct access to the web through Ollama —
-search the web and fetch URLs with cited, grounded answers, running entirely
+browse, search, and fetch with cited, grounded answers, running entirely
 on your own machine.
 
 ## Features
 
-- **Local by default** — runs on your own machine via Ollama, no cloud or
-  API keys required
-- **Grounded answers** — fetch returns answers grounded in actual page content
-- **Multi-step search** — search agent may call webSearch and webFetch in
-  multiple steps to build a complete answer
-
-### Primitives
-
-```text
-search  fetch
-```
+- **Local by default** — runs on your own machine via Ollama, no cloud or API keys required
+- **Grounded answers** — all answers are based solely on fetched page content
+- **Adaptive depth** — searches, fetches, and follows links as needed for the query
+- **Sub-agent delegation** — complex multi-part queries are split and handled in parallel
 
 ## Interfaces
 
-| Package                                     | Role                                                       |
-| ------------------------------------------- | ---------------------------------------------------------- |
-| [`@agent-browse/cli`](./apps/cli/README.md) | Human-facing command line wrapper over the core primitives |
-| [`@agent-browse/mcp`](./apps/mcp/README.md) | MCP server that exposes the primitives as tools            |
-| [`@agent-browse/api`](./apps/api/README.md) | Small programmatic wrapper for app/server integration      |
+| Package                                     | Role                                                  |
+| ------------------------------------------- | ----------------------------------------------------- |
+| [`@agent-browse/cli`](./apps/cli/README.md) | Human-facing command line interface                   |
+| [`@agent-browse/mcp`](./apps/mcp/README.md) | MCP server exposing a single `browse` tool            |
+| [`@agent-browse/api`](./apps/api/README.md) | Programmatic wrapper for app/server integration       |
 
 ## Quick Start
 
 ### CLI
 
 ```bash
-# install or upgrade
 npm install -g @agent-browse/cli
 ```
 
 ```bash
-agent-browse search what is bun js runtime
-agent-browse fetch what is bun https://bun.sh
+agent-browse what is bun js runtime
+agent-browse what is the latest version of react https://react.dev
 ```
 
 ### MCP
@@ -69,16 +61,11 @@ import { AgentBrowse } from "@agent-browse/api";
 
 const browser = new AgentBrowse();
 
-const answer = await browser.search("what is bun js runtime");
+const answer = await browser.browse("what is bun js runtime");
 console.log(answer);
-
-const page = await browser.fetch("what is bun", ["https://bun.sh"]);
-console.log(page);
 ```
 
 ## Documentation
-
-Use the package READMEs for package-specific usage and reference:
 
 - [CLI package docs](./apps/cli/README.md)
 - [MCP package docs](./apps/mcp/README.md)

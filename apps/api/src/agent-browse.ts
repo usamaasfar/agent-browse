@@ -1,11 +1,7 @@
-import { fetch, search } from "@agent-browse/core";
+import { browse } from "@agent-browse/core";
 
 export class AgentBrowse {
-  async search(query: string): Promise<string> {
-    return search(query);
-  }
-
-  async fetch(query: string, links: string[]): Promise<string> {
-    return fetch(query, links);
+  async browse(query: string): Promise<string> {
+    return browse(query);
   }
 }
