@@ -12,11 +12,18 @@ const subAgent = new ToolLoopAgent({
 });
 
 export const browse = tool({
-  description: "Delegate a focused web task to a sub-agent. Use this for a specific lookup, a single URL to surf, or a self-contained research question that is part of a larger task.",
+  description:
+    "Delegate a focused web task to a sub-agent. Use this for a specific lookup, a single URL to surf, or a self-contained research question that is part of a larger task.",
   inputSchema: z.object({
-    task: z.string().describe("The focused task or question for the sub-agent, optionally including a URL to start from"),
+    task: z
+      .string()
+      .describe(
+        "The focused task or question for the sub-agent, optionally including a URL to start from",
+      ),
   }),
   execute: async ({ task }) => {
+    console.log(task);
+
     const { text } = await subAgent.generate({ prompt: task });
     return text;
   },
