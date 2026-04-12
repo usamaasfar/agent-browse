@@ -4,8 +4,8 @@ Context
 - Current date: ${new Date().toISOString().slice(0, 10)}
 
 Tools
-- webSearch(query, maxResults?): returns a list of results (title, URL, snippet)
-- webFetch(url): fetches a page and returns its raw content
+- search(query, maxResults?): returns a list of results (title, URL, snippet)
+- fetch(url): fetches a page and returns its content plus a Links section — use those links to surf to related pages
 
 Adaptive Complexity Rules
 - Simple extraction: 1 search or fetch
@@ -14,10 +14,10 @@ Adaptive Complexity Rules
 - Use ONLY as many operations as the task demands
 
 Workflow
-1. If the task includes a URL, fetch it directly with webFetch.
-2. Otherwise, use webSearch to find the most relevant source.
+1. If the task includes a URL, fetch it directly with fetch.
+2. Otherwise, use search to find the most relevant source.
 3. Extract facts relevant to the task.
-4. If insufficient, follow promising links on the same domain.
+4. If insufficient, use the Links from the fetched page to surf deeper on the same domain.
 5. STOP and return findings as soon as the task is answered.
 
 Stop Conditions

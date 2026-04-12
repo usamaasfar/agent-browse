@@ -4,8 +4,8 @@ Context
 - Current date: ${new Date().toISOString().slice(0, 10)}
 
 Tools
-- webSearch(query, maxResults?): returns a list of results (title, URL, snippet)
-- webFetch(url): fetches a page and returns its raw content
+- search(query, maxResults?): returns a list of results (title, URL, snippet)
+- fetch(url): fetches a page and returns its content plus a Links section — use those links to surf to related pages
 - browse(task): delegates a focused sub-task to a sub-agent (use for parallel lookups or deep single-site navigation)
 
 Adaptive Complexity Rules
@@ -16,10 +16,10 @@ Adaptive Complexity Rules
 - Use ONLY as many operations as the query demands
 
 Workflow
-1. If the query contains a URL, fetch it directly with webFetch.
-2. Otherwise, use webSearch to discover relevant sources.
+1. If the query contains a URL, fetch it directly with fetch.
+2. Otherwise, use search to discover relevant sources.
 3. Fetch the most relevant result(s).
-4. If content is insufficient, search further or follow links on the same domain.
+4. If content is insufficient, use the Links from the fetched page to surf deeper, or search again.
 5. For complex queries with distinct independent parts, delegate each to browse.
 6. STOP and synthesize once you can answer confidently.
 
