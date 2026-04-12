@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const client = new Ollama();
 
-export const webSearch = tool({
+export const search = tool({
   description: "Search the web and return a list of relevant results (title, URL, content snippet).",
   inputSchema: z.object({
     query: z.string().describe("The search query"),

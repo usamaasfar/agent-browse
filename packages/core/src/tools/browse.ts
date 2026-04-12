@@ -2,13 +2,13 @@ import { ToolLoopAgent, stepCountIs, tool } from "ai";
 import { ollama } from "ollama-ai-provider-v2";
 import { z } from "zod";
 import prompt from "../prompts/sub-browse.ts";
-import { webFetch, webSearch } from "./index.ts";
+import { fetch, search } from "./index.ts";
 
 const subAgent = new ToolLoopAgent({
   model: ollama("kimi-k2.5:cloud"),
   instructions: prompt,
   stopWhen: stepCountIs(5),
-  tools: { webFetch, webSearch },
+  tools: { fetch, search },
 });
 
 export const browse = tool({

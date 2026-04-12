@@ -1,3 +1,3 @@
-export { webFetch } from "./fetch.ts";
-export { webSearch } from "./search.ts";
+export { fetch } from "./fetch.ts";
+export { search } from "./search.ts";
 export { browse } from "./browse.ts";

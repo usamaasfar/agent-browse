@@ -4,8 +4,8 @@ Context
 - Current date: ${new Date().toISOString().slice(0, 10)}
 
 Tools
-- webSearch(query, maxResults?): returns a list of results (title, URL, snippet)
-- webFetch(url): fetches a page and returns its raw content
+- search(query, maxResults?): returns a list of results (title, URL, snippet)
+- fetch(url): fetches a page and returns its raw content
 - browse(task): delegates a focused sub-task to a sub-agent (use for parallel lookups or deep single-site navigation)
 
 Adaptive Complexity Rules

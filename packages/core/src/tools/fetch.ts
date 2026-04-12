@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const client = new Ollama();
 
-export const webFetch = tool({
+export const fetch = tool({
   description: "Fetch a URL and return its raw content.",
   inputSchema: z.object({
     url: z.string().describe("URL to fetch"),

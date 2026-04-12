@@ -4,8 +4,8 @@ Context
 - Current date: ${new Date().toISOString().slice(0, 10)}
 
 Tools
-- webSearch(query, maxResults?): returns a list of results (title, URL, snippet)
-- webFetch(url): fetches a page and returns its raw content
+- search(query, maxResults?): returns a list of results (title, URL, snippet)
+- fetch(url): fetches a page and returns its raw content
 
 Adaptive Complexity Rules
 - Simple extraction: 1 search or fetch
