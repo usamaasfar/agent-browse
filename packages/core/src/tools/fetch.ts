@@ -11,7 +11,6 @@ export const fetch = tool({
     url: z.string().describe("URL to fetch"),
   }),
   execute: async ({ url }) => {
-    console.log(url);
     const page = await client.webFetch({ url });
     return stringify(page);
   },

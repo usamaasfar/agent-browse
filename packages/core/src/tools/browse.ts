@@ -22,8 +22,6 @@ export const browse = tool({
       ),
   }),
   execute: async ({ task }) => {
-    console.log(task);
-
     const { text } = await subAgent.generate({ prompt: task });
     return text;
   },

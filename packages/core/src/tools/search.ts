@@ -16,7 +16,6 @@ export const search = tool({
       .describe("Maximum results to return, default 5"),
   }),
   execute: async ({ query, maxResults }) => {
-    console.log(query, maxResults);
     const response = await client.webSearch({ query, maxResults });
     return stringify(response.results);
   },
